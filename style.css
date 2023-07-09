@@ -1,0 +1,93 @@
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #calculator {
+    width: 400px;
+    background-color: #1c1c1c;
+    border: 2px solid #c70d3a;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  #display {
+    background-color: #ffffff;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    text-align: right;
+    font-size: 2em;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    background-color: #333;
+    cursor: pointer;
+  }
+  
+  .function {
+    background-color: #c70d3a;
+  }
+  
+  .operator {
+    background-color: #ff6f00;
+  }
+  
+  .btn:hover {
+    background-color: #555;
+  }
+  
+  #equals {
+    background-color: #299617;
+  }
+  
+  #clear {
+    background-color: #00c853;
+  }
+  
+  #delete {
+    background-color: #fbc02d;
+  }
+  
+  #pi {
+    background-color: #00796b;
+  }
+  
+  #e {
+    background-color: #01579b;
+  }
+  
+  #exponent {
+    background-color: #6a1b9a;
+  }
+  
+  #clear {
+    background-color: #00c853;
+  }
+  
