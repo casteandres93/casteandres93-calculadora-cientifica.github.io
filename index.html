@@ -14,6 +14,13 @@
   <div id="calculator">
     <div id="display">0</div>
     <div id="buttons">
+      <!-- Moved the specified row to the top -->
+      <div class="row">
+        <button class="btn" onclick="clearDisplay()">C</button>
+        <button class="btn function" onclick="appendText('π')">π</button>
+        <button class="btn function" onclick="appendText('e')">e</button>
+        <button class="btn operator" onclick="appendText('^')">^</button>
+      </div>
       <div class="row">
         <button class="btn function" onclick="appendText('sin(')">sin</button>
         <button class="btn function" onclick="appendText('cos(')">cos</button>
@@ -55,12 +62,6 @@
         <button class="btn" onclick="appendText('.')">.</button>
         <button class="btn operator" onclick="calculate()">=</button>
         <button class="btn operator" onclick="appendText('+')">+</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="clearDisplay()">C</button>
-        <button class="btn function" onclick="appendText('pi')">π</button>
-        <button class="btn function" onclick="appendText('e')">e</button>
-        <button class="btn" onclick="appendText('^')">^</button>
       </div>
     </div>
   </div>

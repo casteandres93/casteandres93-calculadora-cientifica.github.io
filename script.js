@@ -1,36 +1,50 @@
-// Variables
-let display = document.querySelector("#display");
+document.addEventListener('DOMContentLoaded', function() {
+    const display = document.getElementById('display');
 
-// Function to append text to the display
-function appendText(value) {
-  let currentDisplay = display.textContent;
-  display.textContent = currentDisplay === '0' ? value : currentDisplay + value;
-}
-
-// Function to delete the last character
-function deleteLast() {
-  let currentDisplay = display.textContent;
-  display.textContent = currentDisplay.slice(0, -1);
-}
-
-// Function to clear the display
-function clearDisplay() {
-  display.textContent = "0";
-}
-
-// Function to calculate the result
-function calculate() {
-  let calculation = display.textContent;
-
-  let result;
-  try {
-    result = math.evaluate(calculation);
-    if (result === undefined || result === null || isNaN(result)) {
-      throw new Error('Invalid input');
+    // Función para añadir texto al área de visualización
+    function appendText(value) {
+        if (display.innerText === '0' || display.innerText === 'Error') {
+            display.innerText = value;
+        } else {
+            display.innerText += value;
+        }
     }
-  } catch (error) {
-    result = "Error";
-  }
 
-  display.textContent = result;
-}
+    // Función para evaluar la expresión en el área de visualización
+    function evaluateExpression() {
+        try {
+            // Usamos la biblioteca math.js para evaluar la expresión
+            let result = math.evaluate(display.innerText);
+            display.innerText = result.toString();
+        } catch (e) {
+            display.innerText = "Error";
+        }
+    }
+
+    // Función para limpiar el área de visualización
+    function clearDisplay() {
+        display.innerText = "0";
+    }
+
+    // Añadir event listeners a los botones
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            if (value) {
+                appendText(value);
+            } else {
+                switch (this.innerText) {
+                    case '=':
+                        evaluateExpression();
+                        break;
+                    case 'C':
+                        clearDisplay();
+                        break;
+                    default:
+                        appendText(this.innerText);
+                        break;
+                }
+            }
+        });
+    });
+});
