@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para evaluar la expresión en el área de visualización
     function evaluateExpression() {
         try {
-            // Usamos la biblioteca math.js para evaluar la expresión
             let result = math.evaluate(display.innerText);
             display.innerText = result.toString();
         } catch (e) {
@@ -24,6 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para limpiar el área de visualización
     function clearDisplay() {
         display.innerText = "0";
+    }
+
+    // Función para eliminar el último carácter
+    function deleteLastCharacter() {
+        const currentText = display.innerText;
+        if (currentText.length > 1) {
+            display.innerText = currentText.slice(0, -1);
+        } else {
+            display.innerText = "0";
+        }
     }
 
     // Añadir event listeners a los botones
@@ -39,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                     case 'C':
                         clearDisplay();
+                        break;
+                    case 'dirección izquierda eliminar':
+                        deleteLastCharacter();
                         break;
                     default:
                         appendText(this.innerText);
