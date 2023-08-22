@@ -1,71 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Calculadora</title>
-  <link rel="stylesheet" href="style.css">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Proyecto Calculadora
+  </title>
+  <link href="style.css" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.js"></script>
-</head>
-
-<body>
-  <h1>Proyecto Calculadora</h1>
+ </head>
+ <body>
+  <h1>
+   Proyecto Calculadora
+  </h1>
   <div id="calculator">
-    <div id="display">0</div>
-    <div id="buttons">
-      <!-- Moved the specified row to the top -->
-      <div class="row">
-        <button class="btn" onclick="clearDisplay()">C</button>
-        <button class="btn function" onclick="appendText('π')">π</button>
-        <button class="btn function" onclick="appendText('e')">e</button>
-        <button class="btn operator" onclick="appendText('^')">^</button>
-      </div>
-      <div class="row">
-        <button class="btn function" onclick="appendText('sin(')">sin</button>
-        <button class="btn function" onclick="appendText('cos(')">cos</button>
-        <button class="btn function" onclick="appendText('tan(')">tan</button>
-        <button class="btn function" onclick="appendText('sqrt(')">√</button>
-      </div>
-      <div class="row">
-        <button class="btn function" onclick="appendText('log(')">log</button>
-        <button class="btn function" onclick="appendText('ln(')">ln</button>
-        <button class="btn function" onclick="appendText('exp(')">exp</button>
-        <button class="btn function" onclick="appendText('factorial(')">x!</button>
-      </div>
-      <div class="row">
-        <button class="btn function" onclick="appendText('abs(')">|x|</button>
-        <button class="btn" onclick="appendText('(')">(</button>
-        <button class="btn" onclick="appendText(')')">)</button>
-        <button class="btn" onclick="deleteLastCharacter()">←</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendText('7')">7</button>
-        <button class="btn" onclick="appendText('8')">8</button>
-        <button class="btn" onclick="appendText('9')">9</button>
-        <button class="btn operator" onclick="appendText('/')">/</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendText('4')">4</button>
-        <button class="btn" onclick="appendText('5')">5</button>
-        <button class="btn" onclick="appendText('6')">6</button>
-        <button class="btn operator" onclick="appendText('*')">*</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendText('1')">1</button>
-        <button class="btn" onclick="appendText('2')">2</button>
-        <button class="btn" onclick="appendText('3')">3</button>
-        <button class="btn operator" onclick="appendText('-')">-</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendText('0')">0</button>
-        <button class="btn" onclick="appendText('.')">.</button>
-        <button class="btn operator" onclick="calculate()">=</button>
-        <button class="btn operator" onclick="appendText('+')">+</button>
-      </div>
+   <div id="display">
+    0
+   </div>
+   <div id="buttons">
+    <!-- Moved the specified row to the top -->
+    <div class="row">
+     <button class="btn" onclick="clearDisplay()">
+      C
+     </button>
+     <button class="btn function" onclick="appendText('π')">
+      π
+     </button>
+     <button class="btn function" onclick="appendText('e')">
+      e
+     </button>
+     <button class="btn operator" onclick="appendText('^')">
+      ^
+     </button>
     </div>
+    <div class="row">
+     <button class="btn function" onclick="appendText('sin(')">
+      sin
+     </button>
+     <button class="btn function" onclick="appendText('cos(')">
+      cos
+     </button>
+     <button class="btn function" onclick="appendText('tan(')">
+      tan
+     </button>
+     <button class="btn function" onclick="appendText('sqrt(')">
+      √
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn function" onclick="appendText('log(')">
+      log
+     </button>
+     <button class="btn function" onclick="appendText('ln(')">
+      ln
+     </button>
+     <button class="btn function" onclick="appendText('exp(')">
+      exp
+     </button>
+     <button class="btn function" onclick="appendText('factorial(')">
+      x!
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn function" onclick="appendText('abs(')">
+      |x|
+     </button>
+     <button class="btn" onclick="appendText('(')">
+      (
+     </button>
+     <button class="btn" onclick="appendText(')')">
+      )
+     </button>
+     <button class="btn" data-action="delete" onclick="deleteLastCharacter()">
+      ←
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn" onclick="appendText('7')">
+      7
+     </button>
+     <button class="btn" onclick="appendText('8')">
+      8
+     </button>
+     <button class="btn" onclick="appendText('9')">
+      9
+     </button>
+     <button class="btn operator" onclick="appendText('/')">
+      /
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn" onclick="appendText('4')">
+      4
+     </button>
+     <button class="btn" onclick="appendText('5')">
+      5
+     </button>
+     <button class="btn" onclick="appendText('6')">
+      6
+     </button>
+     <button class="btn operator" onclick="appendText('*')">
+      *
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn" onclick="appendText('1')">
+      1
+     </button>
+     <button class="btn" onclick="appendText('2')">
+      2
+     </button>
+     <button class="btn" onclick="appendText('3')">
+      3
+     </button>
+     <button class="btn operator" onclick="appendText('-')">
+      -
+     </button>
+    </div>
+    <div class="row">
+     <button class="btn" onclick="appendText('0')">
+      0
+     </button>
+     <button class="btn" onclick="appendText('.')">
+      .
+     </button>
+     <button class="btn operator" onclick="calculate()">
+      =
+     </button>
+     <button class="btn operator" onclick="appendText('+')">
+      +
+     </button>
+    </div>
+   </div>
   </div>
-  <script src="script.js"></script>
-</body>
-
+  <script src="script.js">
+  </script>
+ </body>
 </html>

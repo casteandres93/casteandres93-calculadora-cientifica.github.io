@@ -38,22 +38,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añadir event listeners a los botones
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
             const value = this.getAttribute('data-value');
             if (value) {
                 appendText(value);
             } else {
-                switch (this.innerText) {
-                    case '=':
-                        evaluateExpression();
-                        break;
-                    case 'C':
-                        clearDisplay();
-                        break;
-                    case 'dirección izquierda eliminar':
+                switch (action) {
+                    case 'delete':
                         deleteLastCharacter();
                         break;
                     default:
-                        appendText(this.innerText);
+                        switch (this.innerText) {
+                            case '=':
+                                evaluateExpression();
+                                break;
+                            case 'C':
+                                clearDisplay();
+                                break;
+                            default:
+                                appendText(this.innerText);
+                                break;
+                        }
                         break;
                 }
             }
